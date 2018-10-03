@@ -66,6 +66,11 @@ namespace MoviesRentalApp
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    "MoviesByReleaseDate",
+                    "Movies/released/{year}/{month}",
+                    new {Controller = "Movies", action = "ByReleaseDate"},
+                    new {year = @"2015|2016", month = @"\d{2}"});
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
